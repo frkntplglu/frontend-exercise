@@ -13,7 +13,7 @@ export const Series = () => {
             <div className="container">
             <CardList>
                 {
-                    series.map(serie  => <Card key={serie.title} title={serie.title} image={serie.images["Poster Art"].url} />)
+                    series.map(serie  => <Card key={serie.title} title={serie.title} image={serie.images["Poster Art"].url} releaseYear={serie.releaseYear} />)
                 }
             </CardList>
             </div>
