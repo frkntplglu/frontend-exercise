@@ -1,0 +1,39 @@
+.footer{
+    background: #1e1e1e;
+    padding-top: 40px;
+    padding-bottom: 48px;
+    &-navigation{
+        display: flex;
+        &--item{
+            color: #babfc3;
+            font-size: 13px;
+            border-right: 1px solid #babfc3;
+            padding-left: 12px;
+            padding-right: 12px;
+            height: 12px;
+            line-height: 12px;
+            &:first-child{
+                padding-left: 0;
+            }
+        }
+    }
+
+    &-copyright{
+        color: #babfc3;
+        font-size: 12px;
+        margin-top: 18px;
+    }
+
+    &-bottom{
+        margin-top: 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-apps{
+        &--link{
+            margin-left: 20px;
+        }
+    }
+}
