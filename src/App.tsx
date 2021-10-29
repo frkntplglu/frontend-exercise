@@ -12,15 +12,15 @@ function App() {
 
   useEffect(() => {
     dispatch(getEntries());
-  },[dispatch, entries])
+  },[dispatch])
 
   return (
     <div className="App">
       <Header />
       <Home />
-      {/* {
+      {
         entries.map((entry: any, index: any) => <p key={index}>{entry.title}</p>)
-      } */}
+      }
       <Footer />
     </div>
   );

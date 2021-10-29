@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {FC} from 'react'
+import "./card.scss"
 
-export const Card = () => {
+interface ICardProps{
+    image: string;
+    title: string;
+}
+
+export const Card: FC<ICardProps> = ({image, title}) => {
     return (
         <div className="card">
-            <div className="card-image"></div>
-            <div className="card-title"></div>
+            <div className="card-image"><img src={image} alt={title} /></div>
+            <div className="card-title">{title}</div>
         </div>
     )
 }
