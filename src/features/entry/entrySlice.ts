@@ -55,6 +55,10 @@ export const entrySlice = createSlice({
   },
 });
 
-export const selectEntries = (state: RootState) => state.entry.entries;
+const compareFn = (a: Entry, b: Entry): number => a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1;
+
+// For now create a selector for first 21 items in each programType
+export const selectMovies = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "movie").slice(0,21).sort(compareFn);
+export const selectSeries = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "series").slice(0,21).sort(compareFn);
 
 export default entrySlice.reducer;

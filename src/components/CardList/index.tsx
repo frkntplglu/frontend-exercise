@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {FC} from 'react'
+import "./cardlist.scss"
 
-export const CardList = () => {
+export const CardList:FC = ({children}) => {
     return (
-        <div>
-            
+        <div className="card-list">
+            {children}
         </div>
     )
 }

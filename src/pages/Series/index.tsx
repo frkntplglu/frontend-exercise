@@ -1,19 +1,20 @@
 import React from 'react'
+import { useAppSelector } from '../../app/hooks'
 import { Card } from '../../components/Card'
 import { CardList } from '../../components/CardList'
 import { PageTitle } from '../../components/PageTitle'
-import series from "../../assets/series.png"
-import movies from "../../assets/movies.png"
+import { selectSeries } from '../../features/entry/entrySlice'
 
-
-export const Home = () => {
+export const Series = () => {
+    const series = useAppSelector(selectSeries);
     return (
         <div>
             <PageTitle title="Popular Series"  />
             <div className="container">
             <CardList>
-                <Card title="Popular Series" image={series} />
-                <Card title="Popular Movies" image={movies} />
+                {
+                    series.map(serie  => <Card key={serie.title} title={serie.title} image={serie.images["Poster Art"].url} />)
+                }
             </CardList>
             </div>
         </div>
