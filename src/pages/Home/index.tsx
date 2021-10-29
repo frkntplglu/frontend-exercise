@@ -4,6 +4,7 @@ import { CardList } from '../../components/CardList'
 import { PageTitle } from '../../components/PageTitle'
 import series from "../../assets/series.png"
 import movies from "../../assets/movies.png"
+import { Link } from "react-router-dom"
 
 
 export const Home = () => {
@@ -12,8 +13,8 @@ export const Home = () => {
             <PageTitle title="Popular Series"  />
             <div className="container">
             <CardList>
-                <Card title="Popular Series" image={series} />
-                <Card title="Popular Movies" image={movies} />
+                <Link to="series"><Card title="Popular Series" image={series} /></Link>
+                <Link to="movies"><Card title="Popular Movies" image={movies} /></Link>
             </CardList>
             </div>
         </div>

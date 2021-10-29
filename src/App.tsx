@@ -6,6 +6,11 @@ import { getEntries } from './features/entry/entrySlice';
 import { Home } from './pages/Home';
 import { Movies } from './pages/Movies';
 import { Series } from './pages/Series';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 
 function App() {
@@ -16,13 +21,23 @@ function App() {
   },[dispatch])
 
   return (
-    <div className="App">
-      <Header />
-      <Home />
-      <Movies />
-      <Series />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/series">
+            <Series />
+          </Route>
+          <Route path="/movies">
+            <Movies />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
