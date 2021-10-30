@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
-import { movieAPI } from '../../api';
+import { RootState } from '../../store/store';
+import { movieAPI } from '@api/api';
 
 export interface Entry {
   title: string;
@@ -66,6 +66,8 @@ const compareFn = (a: Entry, b: Entry): number => a.title.toLowerCase() < b.titl
 // For now create a selector for first 21 items in each programType
 export const selectMovies = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "movie").slice(0,21);
 export const selectSeries = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "series").slice(0,21);
+
+export const selectMoviesSortedByYearAsc = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "movie").slice(0,21).sort((a,b) => a.releaseYear - b.releaseYear)
 
 export const { sortByYearAsc,sortByAlphaAsc } = entrySlice.actions;
 

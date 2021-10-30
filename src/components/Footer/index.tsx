@@ -1,8 +1,8 @@
 import React from 'react'
 import "./footer.scss"
-import appStore from "../../assets/app_store.png"
-import googlePlay from "../../assets/google_play.png"
-import microsoft from "../../assets/microsoft.png"
+import appStore from "@assets/app_store.png"
+import googlePlay from "@assets/google_play.png"
+import microsoft from "@assets/microsoft.png"
 
 export const Footer = () => {
     return (

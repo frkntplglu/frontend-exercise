@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
-import { useAppDispatch } from './app/hooks';
-import { Footer } from './components/Footer';
-import { Header } from './components/Header';
-import { getEntries } from './features/entry/entrySlice';
-import { Home } from './pages/Home';
-import { Movies } from './pages/Movies';
-import { Series } from './pages/Series';
+import { useAppDispatch } from '@store/hooks';
+import { Footer } from '@components/Footer';
+import { Header } from '@components/Header';
+import { getEntries } from '@features/entry/entrySlice';
+import { Home } from '@pages/Home';
+import { Movies } from '@pages/Movies';
+import { Series } from '@pages/Series';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+
 
 
 function App() {

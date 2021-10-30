@@ -1,9 +1,9 @@
 import React from 'react'
-import { useAppSelector } from '../../app/hooks'
-import { Card } from '../../components/Card'
-import { CardList } from '../../components/CardList'
-import { PageTitle } from '../../components/PageTitle'
-import { selectSeries } from '../../features/entry/entrySlice'
+import { useAppSelector } from '@store/hooks'
+import { Card } from '@components/Card'
+import { CardList } from '@components/CardList'
+import { PageTitle } from '@components/PageTitle'
+import { selectSeries } from '@features/entry/entrySlice'
 
 export const Series = () => {
     const series = useAppSelector(selectSeries);
@@ -13,7 +13,7 @@ export const Series = () => {
             <div className="container">
             <CardList>
                 {
-                    series.map(serie  => <Card key={serie.title} title={serie.title} image={serie.images["Poster Art"].url} releaseYear={serie.releaseYear} />)
+                    series.map((serie : any)  => <Card key={serie.title} title={serie.title} image={serie.images["Poster Art"].url} releaseYear={serie.releaseYear} />)
                 }
             </CardList>
             </div>
