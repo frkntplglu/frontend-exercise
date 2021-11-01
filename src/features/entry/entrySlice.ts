@@ -60,5 +60,5 @@ export const entrySlice = createSlice({
 // For now create a selector for first 21 items in each programType
 export const selectMovies = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "movie").slice(0,21);
 export const selectSeries = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "series").slice(0,21);
-
+export const selectStatus = (state: RootState) => state.entry.status;
 export default entrySlice.reducer;

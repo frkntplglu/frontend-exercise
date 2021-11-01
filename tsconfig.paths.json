@@ -8,6 +8,8 @@
           "@features/*": ["features/*"],
           "@assets/*": ["assets/*"],
           "@api/*": ["api/*"],
+          "@helpers/*": ["helpers/*"],
+          "@types/*": ["types/*"],
        }
     }
  }

@@ -3,25 +3,15 @@ import { useAppSelector } from '@store/hooks'
 import { Card } from '@components/Card'
 import { CardList } from '@components/CardList'
 import { PageTitle } from '@components/PageTitle'
-import { Entry, selectSeries } from '@features/entry/entrySlice'
+import { selectSeries, selectStatus } from '@features/entry/entrySlice'
 import { Sort } from '@components/Sort'
-
-const sortByProperty = (array: Entry[], propertyName: "releaseYear" | "title", sortType: "asc" | "desc") => {
-    return array.sort((a: any, b: any)  => {
-        if(propertyName === "releaseYear"){
-            if(sortType === "asc") return a[propertyName] - b[propertyName];
-            return b[propertyName] - a[propertyName];
-        } else{
-            if(sortType === "asc") return a[propertyName].toLowerCase() > b[propertyName].toLowerCase() ? 1 : -1;
-            return b[propertyName].toLowerCase() > a[propertyName].toLowerCase() ? 1 : -1;
-        }
-        
-    });
-}
+import { sortByProperty } from '@helpers/sortByProperty'
+import { sortFieldType, sortTypeType } from 'types/'
 
 export const Series = () => {
-    const [sortField, setSortField] = useState<"releaseYear" | "title">("title");
-    const [sortType, setSortType] = useState<"asc" | "desc">("asc");
+    const [sortField, setSortField] = useState<sortFieldType>("title");
+    const [sortType, setSortType] = useState<sortTypeType>("asc");
+    const status = useAppSelector(selectStatus);
     const series = useAppSelector(selectSeries);
 
     const handleSort = (e: any) => {
@@ -36,6 +26,7 @@ export const Series = () => {
             <Sort onChange={handleSort} />
             <CardList>
                 {
+                    status === "loading" ? "Loading..." :
                     sortByProperty(series, sortField, sortType).map((serie : any)  => <Card key={serie.title} title={serie.title} image={serie.images["Poster Art"].url} releaseYear={serie.releaseYear} />)
                 }
             </CardList>
