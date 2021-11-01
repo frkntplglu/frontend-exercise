@@ -20,17 +20,18 @@ export const Series = () => {
     }
 
     return (
-        <div>
+        <>
             <PageTitle title="Popular Series"  />
             <div className="container">
-            <Sort onChange={handleSort} />
-            <CardList>
+                <Sort onChange={handleSort} />
                 {
                     status === "loading" ? "Loading..." :
-                    sortByProperty(series, sortField, sortType).map((serie : any)  => <Card key={serie.title} title={serie.title} image={serie.images["Poster Art"].url} releaseYear={serie.releaseYear} />)
+                    status === "failed" ? "Oops, something went wrong..." :
+                    <CardList>
+                        {sortByProperty(series, sortField, sortType).map((movie: any)  => <Card key={movie.title} title={movie.title} image={movie.images["Poster Art"].url} />)}
+                    </CardList>
                 }
-            </CardList>
             </div>
-        </div>
+        </>
     )
 }

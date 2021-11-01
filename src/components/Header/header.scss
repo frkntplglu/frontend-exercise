@@ -10,7 +10,10 @@
     }
     &-logo{
         font-size: 33px;
-        color: #fff;
+        
+        a{
+            color: #fff;
+        }
     }
     &-menu{
         display: flex;

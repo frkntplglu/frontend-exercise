@@ -23,19 +23,19 @@ export const Movies = () => {
         setSortType(e.target.value.split("-")[1])
     }
 
-
     return (
-        <div>
+        <>
             <PageTitle title="Popular Movies"  />
             <div className="container">
                 <Sort onChange={handleSort} />
-            <CardList>
                 {
                     status === "loading" ? "Loading..." :
-                    sortByProperty(movies, sortField, sortType).map((movie: any)  => <Card key={movie.title} title={movie.title} image={movie.images["Poster Art"].url} releaseYear={movie.releaseYear} />)
+                    status === "failed" ? "Oops, something went wrong..." :
+                    <CardList>
+                        {sortByProperty(movies, sortField, sortType).map((movie: any)  => <Card key={movie.title} title={movie.title} image={movie.images["Poster Art"].url} />)}
+                    </CardList>
                 }
-            </CardList>
             </div>
-        </div>
+        </>
     )
 }

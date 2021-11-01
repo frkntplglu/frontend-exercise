@@ -25,17 +25,19 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Switch>
-          <Route path="/series">
-            <Series />
-          </Route>
-          <Route path="/movies">
-            <Movies />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <main>
+          <Switch>
+            <Route path="/series">
+              <Series />
+            </Route>
+            <Route path="/movies">
+              <Movies />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </main>
         <Footer />
       </div>
     </Router>

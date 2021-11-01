@@ -29,7 +29,7 @@ const initialState: EntryState = {
 export const getEntries = createAsyncThunk(
   'entry/fetchEntry',
   async () => {
-    const response = await movieAPI.get("/");
+    const response = await movieAPI.get("/entries");
     const data = await response.data;
 
     return data;
@@ -52,13 +52,16 @@ export const entrySlice = createSlice({
       .addCase(getEntries.fulfilled, (state, action: PayloadAction<Entry[]>) => {
         state.status = 'idle';
         state.entries = action.payload
+      })
+      .addCase(getEntries.rejected, (state) => {
+        state.status = 'failed';
       });
   },
 });
 
 
 // For now create a selector for first 21 items in each programType
-export const selectMovies = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "movie").slice(0,21);
-export const selectSeries = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "series").slice(0,21);
+export const selectMovies = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "movie" && entry.releaseYear >= 2010).slice(0,21);
+export const selectSeries = (state: RootState) => state.entry.entries.filter(entry => entry.programType === "series" && entry.releaseYear >= 2010).slice(0,21);
 export const selectStatus = (state: RootState) => state.entry.status;
 export default entrySlice.reducer;

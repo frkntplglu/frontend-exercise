@@ -9,14 +9,14 @@ import { Link } from "react-router-dom"
 
 export const Home = () => {
     return (
-        <div>
-            <PageTitle title="Popular Series"  />
+        <>
+            <PageTitle title="Popular Titles"  />
             <div className="container">
             <CardList>
-                <Link to="series"><Card title="Popular Series" image={series} releaseYear={1} /></Link>
-                <Link to="movies"><Card title="Popular Movies" image={movies} releaseYear={2} /></Link>
+                <Link to="series"><Card title="Popular Series" image={series} /></Link>
+                <Link to="movies"><Card title="Popular Movies" image={movies} /></Link>
             </CardList>
             </div>
-        </div>
+        </>
     )
 }
