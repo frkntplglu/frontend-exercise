@@ -32,6 +32,14 @@
         align-items: center;
     }
 
+    &-social{
+        display: flex;
+        align-items: center;
+        a{
+            margin-right: 25px;
+        }
+    }
+
     &-apps{
         &--link{
             margin-left: 20px;

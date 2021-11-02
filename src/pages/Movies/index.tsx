@@ -34,8 +34,10 @@ export const Movies = () => {
         <>
             <PageTitle title="Popular Movies"  />
             <div className="container">
-                <Search onChange={handleChange} />
-                <Sort onChange={handleSort} />
+                <div className="search-wrapper">
+                    <Search onChange={handleChange} />
+                    <Sort onChange={handleSort} />
+                </div>
                 {
                     status === "loading" ? "Loading..." :
                     status === "failed" ? "Oops, something went wrong..." :
