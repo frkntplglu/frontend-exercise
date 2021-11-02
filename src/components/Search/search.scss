@@ -26,3 +26,17 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width: 960px) {
+    .search{
+        margin-bottom: 25px;
+        &-wrapper{
+            flex-direction: column;
+        }
+
+        &-input{
+            width: 100%;
+            min-width: auto;
+        }
+    }
+}
