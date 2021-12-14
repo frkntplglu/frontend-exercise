@@ -9,9 +9,6 @@ import { sortByProperty } from '@helpers/sortByProperty'
 import { sortFieldType, sortTypeType } from 'types/'
 import { Search } from '@components/Search'
 
-
-
-
 export const Movies = () => {
     const [sortField, setSortField] = useState<sortFieldType>("title");
     const [sortType, setSortType] = useState<sortTypeType>("asc");
